@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import useCountRenders from './useCountRenders';
+// import useCountRenders from './useCountRenders';
 import floors from './floors';
 import Unit from './Unit';
 
 export default React.memo(({ name }) => {
-  useCountRenders();
+  // useCountRenders();
   const [units, setUnits] = useState(null);
 
   useEffect(() => {

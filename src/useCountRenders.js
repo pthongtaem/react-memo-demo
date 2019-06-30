@@ -1,6 +1,6 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 
-export default () => {
+export default text => {
   const renders = useRef(0);
-  console.log(`renders: ${renders.current++}`);
+  console.log(`renders: ${text || ''} ${renders.current++}`);
 };
