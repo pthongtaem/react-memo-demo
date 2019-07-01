@@ -11,7 +11,7 @@ const Tower = () => {
   return (
     <div style={{ padding: '10px' }}>
       {floors.map(floor => (
-        <Floor key={floor.name} name={floor.name} units={floor.units} />
+        <Floor key={floor.name} floor={floor} />
       ))}
       <hr />
       <button onClick={() => dispatch(setShowRoom('all'))}>all</button>
