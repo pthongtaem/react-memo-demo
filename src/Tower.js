@@ -1,27 +1,17 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
-import Hello from './Hello';
-import Square from './Square';
+import { notification } from 'antd';
 import Floor from './Floor';
 import floors from './floors';
 import { setShowRoom } from './reducers/matrix';
 
 const Tower = () => {
-  const [count, setCount] = useState(0);
-  const favoriteNums = [7, 21, 37];
   const dispatch = useDispatch();
 
-  const increment = useCallback(
-    n => {
-      setCount(c => c + n);
-    },
-    [setCount],
-  );
-
   return (
-    <div>
+    <div style={{ padding: '10px' }}>
       {floors.map(floor => (
-        <Floor key={floor.name} name={floor.name} unit={floor.units} />
+        <Floor key={floor.name} name={floor.name} units={floor.units} />
       ))}
       <hr />
       <button onClick={() => dispatch(setShowRoom('all'))}>all</button>
@@ -29,11 +19,20 @@ const Tower = () => {
       <button onClick={() => dispatch(setShowRoom('02'))}>2</button>
       <button onClick={() => dispatch(setShowRoom('03'))}>3</button>
       <hr />
-      <Hello increment={increment} />
-      <div>count: {count}</div>
-      {favoriteNums.map(n => (
-        <Square increment={increment} n={n} key={n} />
-      ))}
+      <button
+        onClick={() => {
+          notification.open({
+            message: 'Notification Title',
+            description:
+              'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
+            onClick: () => {
+              console.log('Notification Clicked!');
+            },
+          });
+        }}
+      >
+        alert
+      </button>
     </div>
   );
 };

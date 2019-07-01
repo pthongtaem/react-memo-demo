@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-// import useCountRenders from './useCountRenders';
+import useCountRenders from './useCountRenders';
 
 export default React.memo(({ unit }) => {
   const showRoom = useSelector(state => {
@@ -15,7 +15,7 @@ export default React.memo(({ unit }) => {
     return 'gray';
   });
 
-  // useCountRenders(unit.number);
+  useCountRenders(unit.number);
 
   return (
     <div style={{ padding: 5, backgroundColor: showRoom, marginRight: '5px' }}>
